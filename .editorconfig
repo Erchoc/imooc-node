@@ -1,0 +1,17 @@
+# EditorConfig官网: https://EditorConfig.org
+
+# 控制最顶级目录
+root = true
+
+# Unix风格的回车 && 文末添加空行 && 匹配规则
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+
+[*.{json, md}]
+indent_size = 4

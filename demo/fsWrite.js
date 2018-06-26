@@ -9,18 +9,27 @@
  
 const fs = require('fs')
 
-// 增加文件 && 增加文件内容
+// 增加文件(夹) && 增加文件内容
 
 fs.writeFile('demo.json', '{"name": "yangxuejin"}', 'utf-8', err => {
     if (err) {
-        throw err
+        // throw err
     } else {
         console.log('ok, create success')
     }
 })
 // 同步版本
-fs.writeFileSync('demoSync.json', 'hellop', 'utf-8')
+// fs.writeFileSync('demoSync.json', 'hellop', 'utf-8')
 
 
+fs.mkdir('./demoD', err => {
+    if (err) {
+        throw err
+    } else {
+        console.log('创建目录成功')
+    }
+})
+
+fs.mkdirSync('./demoB')
 
 

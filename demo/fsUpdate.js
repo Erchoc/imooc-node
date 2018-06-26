@@ -7,15 +7,30 @@
 
  **/
 
-const fs = require('demo/fsUpdate')
+const fs = require('fs')
 
-// 修改文件名 && 修改文件内容
+// 修改文件名(夹) && 修改文件内容
 
-fs.f6
+fs.rename('demo.tt', 'demo.json', (err) => {
+    if (err) {
+        // throw err
+    } else {
+        console.log('修改成功')
+    }
+})
+
+// fs.renameSync('demoSync.json', 'demoSync.txt')
+
+fs.rename('demoxxx', 'fsWatch', err => {
+    if (err) {
+        throw err
+    } else {
+        console.log('修改成功')
+    }
+})
 
 
-
-
+fs.renameSync('./demoB', 'demoXXX')
 
 
 

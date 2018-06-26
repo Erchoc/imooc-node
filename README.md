@@ -1,8 +1,16 @@
 # NodeJS入门到企业Web开发中的应用
 
-> 慕课网实战视频教程：https://coding.imooc.com/class/package/146.html
+> 由于项目使用了ESLint，请先执行`npm i -g eslint`全局安装ESLint。慕课网实战视频教程：https://coding.imooc.com/class/package/146.html
 
+### 深入学习内容
 
+    1. Stream(fs/http)
+    2. Express/Koa/egg
+    3. child_process/Cluster集群
+    4. through2
+    5. SSR/同构
+    6. NodeJS源码
+    
 ### CommonJS: NodeJS自带的模块管理规范
 
     1. 每个文件都是一个模块，有自己的作用域；
@@ -70,9 +78,20 @@
     2. 
     3. 
 
-### 
+### 回调地狱之ES6的promise
 
 
-### 
+### 回调地狱之ES7的async await
+
+### .gitignore
+
+    1. 匹配模式前加 / 代表项目根目录
+    2. 匹配模式最后加 / 代表是目录
+    3. 匹配模式前加 ! 代表取反
+    4. * 代表任意字符，? 代表匹配一个字符， ** 代表匹配多级目录
+    
+### pre-commit模块：不符合ESLint就不让push
+  
+    1. f    
 
 
