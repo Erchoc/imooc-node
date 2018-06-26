@@ -28,7 +28,7 @@
     
 ### fs文件系统增删改查
 
-    1. fs.readFile/fs.readFileSync
+    1. fsUpdate.readFile/fsUpdate.readFileSync
     2. 
     3. 
     
