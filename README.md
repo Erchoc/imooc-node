@@ -1,6 +1,6 @@
 # NodeJS入门到企业Web开发中的应用
 
-> 由于项目使用了ESLint，请先执行`npm i -g eslint`全局安装ESLint。慕课网实战视频教程：https://coding.imooc.com/class/package/146.html
+> 由于项目使用了ESLint和Supervisor，请先执行`npm i -g eslint,supervisor`全局安装ESLint。慕课网实战视频教程：https://coding.imooc.com/class/package/146.html
 
 ### 深入学习内容
 
@@ -92,6 +92,10 @@
     
 ### pre-commit模块：不符合ESLint就不让push
   
-    1. f    
+    1. 每次git commit会验证ESlint规则并自动修复一部分内容
+    2. 自动修复不了的内容会报错，需要手动修改后再次commit
 
+### supervise和pm2管理监视node程序
 
+    1. npm i -g supervisor, pm2
+    2. 修改服务端代码不需要重启node程序了
