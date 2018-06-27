@@ -1,7 +1,12 @@
 # NodeJS入门到企业Web开发中的应用
 
-> 由于项目使用了ESLint和Supervisor，请先执行`npm i -g eslint,supervisor`全局安装ESLint。慕课网实战视频教程：https://coding.imooc.com/class/package/146.html
+> 由于项目使用了ESLint和Supervisor，请先执行下面的`npm本地工具`。慕课网实战视频教程：https://coding.imooc.com/class/package/146.html
 
+### npm本地工具
+
+    1. npm i -g eslint,supervisor
+    2. npm i -g babel-eslint -D
+    
 ### 深入学习内容
 
     1. Stream(fs/http)
@@ -83,6 +88,10 @@
 
 ### 回调地狱之ES7的async await
 
+    1. 引入 util.promisify 处理异步回调
+    2. 异步方法使用 const xxx = promisify(zzz.xxx) 转为同步方法
+    3. 异步方法调用前使用 await 关键字
+
 ### .gitignore
 
     1. 匹配模式前加 / 代表项目根目录
@@ -99,3 +108,7 @@
 
     1. npm i -g supervisor, pm2
     2. 修改服务端代码不需要重启node程序了
+
+### 模板引擎HandleBars
+
+    1. 安装：

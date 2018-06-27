@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <style>
+      a {
+        display: block;
+        font-size: 30px;
+      }
+    </style>
+</head>
+<body>
+
+{{#each items}}
+
+  <a href="{{../dir}}/{{item}}">[{{ icon }}] - {{item}}</a>
+
+{{/each}}
+
+</body>
+</html>

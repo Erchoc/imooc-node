@@ -13,16 +13,14 @@ const chalk = require('chalk');
 
 // 引入文件
 const conf = require('./config/defaultConfig');
+const helper = require('./helper/helper');
 
 // 创建服务
 const server = http.createServer(( req, res ) => {
-  const url = req.url;
-  const filePath = path.join(conf.root, url);
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/html');
-  console.log(req.url);
 
-  res.end(filePath);
+  const filePath = path.join(conf.root, req.url);
+  helper( req, res, filePath);
+  
 });
 
 // 端口监听
