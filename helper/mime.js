@@ -1,10 +1,10 @@
 /**
- 
+
  Created by WebStorm.
  User: Erchoc
  Date: 2018/6/27 14:50
  Description:
- 
+
  **/
 
 const path = require('path');
@@ -495,10 +495,9 @@ const mimeTypes = {
 };
 
 module.exports = (filePath) => {
-  let ext = path.extname(filePath).pop().toLowerCase();
-  console.log(ext);
+  let ext = path.extname(filePath).toLowerCase();
   if (!ext) {
     ext = filePath;
   }
-  return mimeTypes[ext] || mimeTypes['txt'];
+  return mimeTypes[ext] || mimeTypes['.txt'];
 };

@@ -1,10 +1,10 @@
 /**
- 
+
  Created by WebStorm.
  User: Erchoc
  Date: 2018/6/27 8:09
  Description:
- 
+
  **/
 const fs = require('fs');
 const path = require('path');
@@ -14,6 +14,8 @@ const handleBars = require('handlebars');
 // 引入文件
 const config = require('../config/defaultConfig');
 const mime = require('../helper/mime');
+const compress = require('./compress');
+const range = require('./range');
 
 // 利用promisify将异步操作同步化
 const stat = promisify(fs.stat);
@@ -29,9 +31,23 @@ module.exports = async function ( req, res, filePath ) {
     const stats = await stat(filePath);
     if (stats.isFile()) {
       const contentType = mime(filePath);
-      res.statusCode = 200;
       res.setHeader('Content-Type', contentType);
-      fs.createReadStream(filePath).pipe(res);
+
+      let rs;
+      const {code, start, end} = range(stats.size, req, res);
+      if (code === 200) {
+        res.statusCode = 200;
+        rs = fs.createReadStream(filePath);
+      } else {
+        res.statusCode = 206;
+        rs = fs.createReadStream(filePath, {start, end});
+      }
+
+      // 调用压缩算法
+      if (filePath.match(config. compress)) {
+        rs = compress(rs, req, res);
+      }
+      rs.pipe(res);
     } else if (stats.isDirectory()) {
       // 这里可能出现异常，这里只在最外层捕获异常
       const items = await readdir(filePath);
