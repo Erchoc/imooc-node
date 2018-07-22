@@ -1,20 +1,20 @@
 {
   "name": "netfile",
   "version": "1.0.0",
-  "description": "Node Action in iMooc",
+  "description": "A simple Static Resource Web Manage CLI",
   "main": "app.js",
   "bin": {
     "netfile": "bin/netfile"
   },
   "scripts": {
     "lint": "eslint .",
-    "fix": "eslint --fix .",
+    "lint:fix": "eslint --fix .",
     "dev": "supervisor app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "pre-commit": [
     "lint",
-    "fix"
+    "lint:fix"
   ],
   "author": "Erchoc",
   "license": "MIT",
@@ -25,5 +25,9 @@
   },
   "devDependencies": {
     "pre-commit": "^1.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Erchoc/netfile.git"
   }
 }

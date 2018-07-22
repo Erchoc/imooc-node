@@ -10,12 +10,9 @@
 const { exec } = require('child_process');
 
 module.exports = url => {
-  switch (process.platform) {
-    case 'darwin':
-      exec(`open ${url}`);
-    case 'win32':
-      exec(`start ${url}`);
-      break;
+  if (process.platform === 'darwin') {
+    exec(`open ${url}`);
+  } else if (process.platform === 'win32') {
+    exec(`start ${url}`);
   }
-
-}
+};

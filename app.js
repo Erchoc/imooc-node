@@ -12,7 +12,6 @@ const path = require('path');
 const chalk = require('chalk');
 
 // 引入文件
-const conf = require('./config/defaultConfig');
 const helper = require('./helper/helper');
 const openUrl = require('./helper/openURL');
 
