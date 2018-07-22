@@ -1,8 +1,11 @@
 {
-  "name": "imooc-node",
+  "name": "netfile",
   "version": "1.0.0",
   "description": "Node Action in iMooc",
   "main": "app.js",
+  "bin": {
+    "netfile": "bin/netfile"
+  },
   "scripts": {
     "lint": "eslint .",
     "fix": "eslint --fix .",
@@ -17,7 +20,8 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.1",
-    "handlebars": "^4.0.11"
+    "handlebars": "^4.0.11",
+    "yargs": "^12.0.1"
   },
   "devDependencies": {
     "pre-commit": "^1.2.2"

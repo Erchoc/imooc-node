@@ -14,18 +14,27 @@ const chalk = require('chalk');
 // 引入文件
 const conf = require('./config/defaultConfig');
 const helper = require('./helper/helper');
+const openUrl = require('./helper/openURL');
 
-// 创建服务
-const server = http.createServer(( req, res ) => {
+class Server {
+  constructor (config) {
+    this.conf = Object.assign({}, config);
+  }
+  start () {
+    // 创建服务
+    const server = http.createServer(( req, res ) => {
+      const filePath = path.join(this.conf.root, req.url);
+      helper( req, res, filePath, this.conf);
 
-  const filePath = path.join(conf.root, req.url);
-  helper( req, res, filePath);
-  
-});
+    });
 
-// 端口监听
-server.listen(conf.port, conf.hostname, () => {
-  const addr = `http://${conf.hostname}:${conf.port}`;
-  console.log(`Server is Running at ${chalk.yellow(addr)}`);
-});
+    // 端口监听
+    server.listen(this.conf.port, this.conf.hostname, () => {
+      const addr = `http://${this.conf.hostname}:${this.conf.port}`;
+      console.log(`Server is Running at ${chalk.yellow(addr)}`);
+      openUrl(addr);
+    });
+  }
+}
 
+module.exports = Server;

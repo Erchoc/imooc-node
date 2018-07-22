@@ -2,6 +2,22 @@
 
 > 由于项目使用了ESLint和Supervisor，请先执行下面的`npm本地工具`。慕课网实战视频教程：https://coding.imooc.com/class/package/146.html
 
+### netfile资静态资源服务器CLI工具
+
+    1. 管理文件
+    2. 自动打开管理页面
+    3. 兼容macos和windows
+    4. 多种命令参数可选
+    5. 缓存方案
+
+### CLI工具封装
+
+    1. npm i -g netfile # 把当前文件夹当作静态资源服务区根目录 
+    2. netfile -p 8080 # 设置端口号
+    3. netfile -h localhost # 设置主机ip
+    4. netfile -d /usr/ # 设置跟目录为/usr
+    5. netfile -c # 是否使用缓存方案 
+    
 ### npm本地工具
 
     1. npm i -g eslint,supervisor
@@ -106,9 +122,27 @@
 
 ### supervise和pm2管理监视node程序
 
-    1. npm i -g supervisor, pm2
+    1. npm i -g supervisor pm2
     2. 修改服务端代码不需要重启node程序了
 
 ### 模板引擎HandleBars
 
-    1. 安装：
+    1. 安装：npm i handlebars
+
+### 缓存Header方案
+
+    1. Expires / Cache-Control
+    2. If-Modified / Last-Modified
+    3. If-None-Match / ETag
+
+### node命令参数
+
+    1. yargs和commander的对比
+    2. 
+    3. 
+    
+### 发布npm包的流程
+
+    1. 
+    2. 
+    3. 

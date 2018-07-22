@@ -10,9 +10,9 @@ const fs = require('fs');
 const path = require('path');
 const {promisify} = require('util');
 const handleBars = require('handlebars');
+const isFresh = require('./cache');
 
 // 引入文件
-const config = require('../config/defaultConfig');
 const mime = require('../helper/mime');
 const compress = require('./compress');
 const range = require('./range');
@@ -26,12 +26,19 @@ const tplPath = path.join(__dirname, '../view/listdir.html');
 const source = fs.readFileSync(tplPath);
 const template = handleBars.compile(source.toString());
 
-module.exports = async function ( req, res, filePath ) {
+module.exports = async function ( req, res, filePath, config ) {
   try {
     const stats = await stat(filePath);
     if (stats.isFile()) {
       const contentType = mime(filePath);
       res.setHeader('Content-Type', contentType);
+
+      // 如果资源是新鲜的，返回304
+      if (isFresh(stats, req, res)) {
+        res.statusCode = 304;
+        res.end();
+        return;
+      }
 
       let rs;
       const {code, start, end} = range(stats.size, req, res);
